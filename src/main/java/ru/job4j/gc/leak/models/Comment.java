@@ -2,7 +2,6 @@ package ru.job4j.gc.leak.models;
 
 import java.util.Objects;
 
-@SuppressWarnings("unused")
 public class Comment {
     private String text;
 
@@ -39,5 +38,10 @@ public class Comment {
     @Override
     public int hashCode() {
         return Objects.hash(text, user);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Comment{text='%s, user=%s}", text, user);
     }
 }

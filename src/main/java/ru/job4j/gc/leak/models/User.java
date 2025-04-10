@@ -2,7 +2,6 @@ package ru.job4j.gc.leak.models;
 
 import java.util.Objects;
 
-@SuppressWarnings("unused")
 public class User {
 
     private String name;
@@ -30,5 +29,12 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hashCode(name);
+    }
+
+    @Override
+    public String toString() {
+        return "User{"
+                + "name='" + name + '\''
+                + '}';
     }
 }

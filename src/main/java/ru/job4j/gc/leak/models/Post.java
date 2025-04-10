@@ -3,7 +3,6 @@ package ru.job4j.gc.leak.models;
 import java.util.List;
 import java.util.Objects;
 
-@SuppressWarnings("unused")
 public class Post {
     private int id;
 
@@ -44,12 +43,17 @@ public class Post {
             return false;
         }
         Post post = (Post) o;
-        return id == post.id && Objects.equals(text, post.text)
+        return Objects.equals(text, post.text)
                 && Objects.equals(comments, post.comments);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, text, comments);
+        return Objects.hash(text, comments);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Post{id='%s, text=%s, comments=%s}", id, text, comments);
     }
 }
